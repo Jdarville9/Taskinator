@@ -218,6 +218,14 @@ var saveTasks = function() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+var loadTasks = function() {
+    var tasks = JSON.parse(localStorage.getItem("tasks"));
+
+    for (var i = 0; i < tasks.length; i++) {
+      createTaskEl(tasks[i]);
+    }
+}
+
 // Create a new task
 formEl.addEventListener("submit", taskFormHandler);
 
